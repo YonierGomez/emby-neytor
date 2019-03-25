@@ -1,4 +1,11 @@
+# Centro multimedia emby
+
+[![Build Status](https://neytor.com)](https://hub.docker.com/r/neytor/emby-neytor)
+
+## Table of Contents
+
 ¿Que es emby?
+=============
 Emby es un centro de multimedia multiplataforma que nos permite visualizar contenido desde cualquier tipo de dispositivo vía Web, App o DLNA.
 
 Emby una manera diferente de ver películas y series
