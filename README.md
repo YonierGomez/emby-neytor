@@ -17,7 +17,7 @@ El servidor de Emby convierte y envía automáticamente los vídeos a cualquier 
 
 > [wikipedia.org/wiki/Emby](https://en.wikipedia.org/wiki/Emby)
 
-![logo](https://https://raw.githubusercontent.com/MediaBrowser/Emby.Resources/master/images/Logos/logoicon.png)
+![logo](https://image.winudf.com/v2/image/Y29tLmd1aWRlLmd1aWRlZm9yZW1ieXhfaWNvbl8xNTEyNTUxNzcyXzA2NA/icon.png?w=170&fakeurl=1&type=.png)
 
 # ¿Cómo usar esta imagen?
 
