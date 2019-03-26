@@ -19,7 +19,7 @@ Los usuarios pueden conectarse al servidor desde un cliente compatible, disponib
 
 # ¿Cómo usar esta imagen?
 
-## En tu consola inicia la imagen por el puerto 8096
+## Crear container y exponer el puerto 80 para tu browser http://localhost/ o http://laipdemimaquina/
 
 ```console
 $ docker run  --name streaming -d -p 80:8096 -v metadata:/var/lib/emby/ neytor/emby-neytor
