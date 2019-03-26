@@ -2,6 +2,11 @@
 
 [![Build Status](https://neytor.com)](https://hub.docker.com/r/neytor/emby-neytor)
 
+# Referencia rápida
+
+-	**Where to get help**:  
+	[Sitio oficial de Emby](https://emby.media/download.html)
+  
 # ¿Qué es  emby?
 
 Emby es un centro de multimedia multiplataforma que nos permite visualizar contenido desde cualquier tipo de dispositivo vía Web, App o DLNA.
