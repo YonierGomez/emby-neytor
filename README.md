@@ -13,7 +13,7 @@ El servidor de Emby convierte y envía automáticamente los vídeos a cualquier 
 
 > [wikipedia.org/wiki/Emby](https://en.wikipedia.org/wiki/Emby)
 
-![logo](https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjj7NK-w57hAhVQw1kKHXK0DREQjRx6BAgBEAU&url=https%3A%2F%2Femby.media%2F&psig=AOvVaw11z-pXaLr6FQKt8cDErGWu&ust=1553645714479128)
+![logo](https://goo.gl/images/F2VGkj)
 
 # ¿Cómo usar esta imagen?
 
@@ -23,3 +23,8 @@ El servidor de Emby convierte y envía automáticamente los vídeos a cualquier 
 $ docker run  --name streaming -d -p 80:8096 -v metadata:/var/lib/emby/ streaming
 ```
 
+## Compartir tu multimedia al contenedor
+
+```console
+$ docker run  --name streamingfull -d -p 80:8096 -v $PWD/mimultimedia:/multimedia/ -v metadata:/var/lib/emby/ streaming
+```
