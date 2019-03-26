@@ -1,13 +1,11 @@
 # Centro multimedia emby
 
-[![Build Status](https://neytor.com)]
+[![Docker #web-neytor](https://https://hub.docker.com/r/neytor/emby-neytor)](https://www.neytor.com)
 
--	[Automated `update.sh` and `push.sh`:  
-	![build status badge](https://doi-janky.infosiftr.net/job/docs/job/update/badge/icon)](https://neytor.com)
 
 # Referencia rápida
 
--	**Where to get help**:  
+-	**Emby y el mundo de la multimedia**:  
 	[Sitio oficial de Emby](https://emby.media/download.html)
   
 # ¿Qué es  emby?
@@ -21,7 +19,7 @@ El servidor de Emby convierte y envía automáticamente los vídeos a cualquier 
 
 > [wikipedia.org/wiki/Emby](https://en.wikipedia.org/wiki/Emby)
 
-![logo](https://goo.gl/images/F2VGkj)
+![logo](https://upload.wikimedia.org/wikipedia/commons/c/c5/Emby-logo.png)
 
 # ¿Cómo usar esta imagen?
 
