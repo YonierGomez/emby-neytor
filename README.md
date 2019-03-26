@@ -1,12 +1,12 @@
 # Centro multimedia emby
 
-[![Docker #web-neytor](https://https://hub.docker.com/r/neytor/emby-neytor)](https://www.neytor.com)
+[![Docker Web Neytor](https://https://hub.docker.com/r/neytor/emby-neytor)](https://www.neytor.com)
 
 
 # Referencia rápida
 
 -	**Emby y el mundo de la multimedia**:  
-	[Sitio oficial de Emby](https://emby.media/download.html)
+	[Sitio oficial de Emby](https://emby.media/)
   
 # ¿Qué es  emby?
 
