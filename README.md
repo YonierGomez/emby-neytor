@@ -2,6 +2,9 @@
 
 [![Build Status](https://neytor.com)]
 
+-	[Automated `update.sh` and `push.sh`:  
+	![build status badge](https://doi-janky.infosiftr.net/job/docs/job/update/badge/icon)](https://neytor.com)
+
 # Referencia rápida
 
 -	**Where to get help**:  
