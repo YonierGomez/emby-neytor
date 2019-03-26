@@ -24,7 +24,7 @@ El servidor de Emby convierte y envía automáticamente los vídeos a cualquier 
 ## En tu consola inicia la imagen por el puerto 8096
 
 ```console
-$ docker run  --name streaming -d -p 80:8096 -v metadata:/var/lib/emby/ streaming
+$ docker run  --name streaming -d -p 80:8096 -v metadata:/var/lib/emby/ neytor/emby-neytor
 ```
 
 ## Compartir tu multimedia al contenedor
