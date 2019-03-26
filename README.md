@@ -1,6 +1,6 @@
 # Centro multimedia emby
 
-[![Build Status](https://neytor.com)](https://hub.docker.com/r/neytor/emby-neytor)
+[![Build Status](https://neytor.com)]
 
 # Referencia rápida
 
