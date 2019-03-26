@@ -2,7 +2,6 @@
 
 [![Build Status](https://neytor.com)](https://hub.docker.com/r/neytor/emby-neytor)
 
-## Table of Contents
 
 ¿Que es emby?
 =============
