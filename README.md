@@ -1,7 +1,5 @@
-# Centro multimedia emby
-
-[![Docker Web Neytor](https://https://hub.docker.com/r/neytor/emby-neytor)](https://www.neytor.com)
-
+Centro multimedia emby
+======================
 
 # Referencia rápida
 
@@ -19,7 +17,7 @@ El servidor de Emby convierte y envía automáticamente los vídeos a cualquier 
 
 > [wikipedia.org/wiki/Emby](https://en.wikipedia.org/wiki/Emby)
 
-![logo](https://upload.wikimedia.org/wikipedia/commons/c/c5/Emby-logo.png)
+![logo](https://https://raw.githubusercontent.com/MediaBrowser/Emby.Resources/master/images/Logos/logoicon.png)
 
 # ¿Cómo usar esta imagen?
 
@@ -32,7 +30,33 @@ $ docker run  --name streaming -d -p 80:8096 -v metadata:/var/lib/emby/ streamin
 ## Compartir tu multimedia al contenedor
 
 ```console
-$ docker run  --name streamingfull -d -p 80:8096 -v $PWD/mimultimedia:/multimedia/ -v metadata:/var/lib/emby/ streaming
+$ docker run  --name streamingfull -d -p 80:8096 -v $PWD/mimultimedia:/multimedia/ -v metadata:/var/lib/emby/ neytor/emby-neytor
 ```
+## ...Correr vía  [`docker-compose`](https://github.com/docker/compose)
+
+```yaml
+version: '3'
+
+services:
+
+  embyneytor:
+    image: neytor/emby-neytor
+    restart: always
+    ports:
+      - 80:8096
+    networks:
+      - mynet
+    volumes:
+      - metadata:/var/lib/emby
+      
+  networks:
+    mynet:
+  volumes:
+    metadata:
+
+```
+
+[![Try in PWD](https://github.com/play-with-docker/stacks/raw/cff22438cb4195ace27f9b15784bbb497047afa7/assets/images/button.png)](http://play-with-docker.com?stack=https://raw.githubusercontent.com/docker-library/docs/db214ae34137ab29c7574f5fbe01bc4eaea6da7e/wordpress/stack.yml)
+
 ## Te invito a visitar mi web
 Puedes ver nuevos eventos en [https://neytor.com/](https://www.neytor.com).
