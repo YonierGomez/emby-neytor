@@ -28,7 +28,7 @@ $ docker run  --name streaming -d -p 80:8096 -v metadata:/var/lib/emby/ neytor/e
 ## Compartir tu multimedia al contenedor
 
 ```console
-$ docker run  --name streamingfull -d -p 80:8096 -v $PWD/mimultimedia:/multimedia/ -v metadata:/var/lib/emby/ neytor/emby-neytor
+$ docker run  --name streamingfull -d -p 80:8096 --restart unless-stopped -v $PWD/mimultimedia:/multimedia/ -v metadata:/var/lib/emby/ neytor/emby-neytor
 ```
 ## ...Correr vía  [`docker-compose`](https://github.com/docker/compose)
 
