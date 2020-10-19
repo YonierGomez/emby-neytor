@@ -2,9 +2,9 @@ FROM centos
 
 MAINTAINER Yonier Gomez yonieer13@gmail.com
 
-LABEL version: 4.4.3.0
+LABEL version: 4.5.2.0
 
-RUN yum -y install https://github.com/MediaBrowser/Emby.Releases/releases/download/4.4.3.0/emby-server-rpm_4.4.3.0_x86_64.rpm
+RUN yum -y install https://github.com/MediaBrowser/Emby.Releases/releases/download/4.5.2.0/emby-server-rpm_4.5.2.0_x86_64.rpm
 
 RUN mkdir -p multimedia/{videos,musica,peliculas}
 
