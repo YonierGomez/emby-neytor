@@ -28,20 +28,26 @@ jobs:
         username: ${{ secrets.USER_HUB }}
         password: ${{ secrets.PASS_HUB }}
 
-    - name: Set Tag
+    - name: Set up QEMU
+      if: matrix.os == 'buildjet-4vcpu-ubuntu-2204-arm'
       run: |
-        if [ ${{ matrix.os }} == 'buildjet-4vcpu-ubuntu-2204-arm' ]; then
-          export DOCKER_TAG="4.7.14.0-arm"
+        docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+        docker buildx create --use
+      shell: bash
+
+    - name: Run Docker Build and Push
+      run: |
+        DOCKER_TAG=""
+        if [ "${{ matrix.os }}" == "buildjet-4vcpu-ubuntu-2204-arm" ]; then
+          DOCKER_TAG="4.7.14.0-arm"
         else
-          export DOCKER_TAG="4.7.14.0"
+          DOCKER_TAG="4.7.14.0"
         fi
         echo "Using Docker Tag: $DOCKER_TAG"
         
-    - name: Build and push the Docker image
-      run: |
-        docker build . \
+        docker buildx build \
           --file Dockerfile \
-          --tag "neytor/emby-neytor:$DOCKER_TAG"
+          --tag "neytor/emby-neytor:$DOCKER_TAG" \
+          --push .
         docker image ls
-        docker push "neytor/emby-neytor:$DOCKER_TAG"
       shell: bash
