@@ -15,7 +15,7 @@ jobs:
       matrix:
         os:
           - ubuntu-latest
-          - actuated-aarch64
+          - buildjet-4vcpu-ubuntu-2204-arm
 
     steps:
     - uses: actions/checkout@v3
@@ -30,7 +30,7 @@ jobs:
 
     - name: Set Tag
       run: |
-        if [ ${{ matrix.os }} == 'actuated-aarch64' ]; then
+        if [ ${{ matrix.os }} == 'buildjet-4vcpu-ubuntu-2204-arm' ]; then
           export DOCKER_TAG="4.7.14.0-arm"
         else
           export DOCKER_TAG="4.7.14.0"
@@ -42,6 +42,7 @@ jobs:
       run: |
         docker build . \
           --file Dockerfile \
-          --tag neytor/emby-neytor:$DOCKER_TAG
+          --tag "neytor/emby-neytor:$DOCKER_TAG"
         docker image ls
-        docker push neytor/emby-neytor:$DOCKER_TAG
+        docker push "neytor/emby-neytor:$DOCKER_TAG"
+      shell: /usr/bin/bash -e {0}
