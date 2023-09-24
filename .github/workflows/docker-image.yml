@@ -15,7 +15,7 @@ jobs:
       matrix:
         os:
           - ubuntu-latest
-          - buildjet-4vcpu-ubuntu-2204-arm
+          - actuated-aarch64
 
     steps:
     - uses: actions/checkout@v3
@@ -29,7 +29,7 @@ jobs:
         password: ${{ secrets.PASS_HUB }}
 
     - name: Set up QEMU
-      if: matrix.os == 'buildjet-4vcpu-ubuntu-2204-arm'
+      if: matrix.os == 'actuated-aarch64'
       run: |
         docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
         docker buildx create --use
@@ -38,7 +38,7 @@ jobs:
     - name: Run Docker Build and Push
       run: |
         DOCKER_TAG=""
-        if [ "${{ matrix.os }}" == "buildjet-4vcpu-ubuntu-2204-arm" ]; then
+        if [ "${{ matrix.os }}" == "actuated-aarch64" ]; then
           DOCKER_TAG="4.7.14.0-arm"
         else
           DOCKER_TAG="4.7.14.0"
