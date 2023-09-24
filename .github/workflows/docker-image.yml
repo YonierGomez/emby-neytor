@@ -2,19 +2,24 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ "master" ]
+    branches:
+      - master
   pull_request:
-    branches: [ "master" ]
+    branches:
+      - master
 
 jobs:
-
   build_push_image:
-
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+          - buildjet-4vcpu-ubuntu-2204-arm
 
     steps:
     - uses: actions/checkout@v3
-      name: Download codigo from repo
+      name: Download code from repo
       
     - name: Docker Login
       uses: docker/login-action@v3.0.0
@@ -22,13 +27,21 @@ jobs:
         registry: docker.io
         username: ${{ secrets.USER_HUB }}
         password: ${{ secrets.PASS_HUB }}
+
+    - name: Set Tag
+      run: |
+        if [ ${{ matrix.os }} == 'buildjet-4vcpu-ubuntu-2204-arm' ]; then
+          export DOCKER_TAG="4.7.14.0-arm"
+        else
+          export DOCKER_TAG="4.7.14.0"
+        fi
         
-    
-    - name: Build and push the Docker image latest
-      run: docker build . --file Dockerfile --tag neytor/emby-neytor && docker image ls && docker push neytor/emby-neytor
-
-    - name: Build and push the Docker image with tag
-      run: docker build . --file Dockerfile --tag neytor/emby-neytor:4.7.14.0 && docker image ls && docker push neytor/emby-neytor:4.7.14.0
+        echo "Using Docker Tag: $DOCKER_TAG"
       
-    
-
+    - name: Build and push the Docker image
+      run: |
+        docker build . \
+          --file Dockerfile \
+          --tag neytor/emby-neytor:$DOCKER_TAG
+        docker image ls
+        docker push neytor/emby-neytor:$DOCKER_TAG
