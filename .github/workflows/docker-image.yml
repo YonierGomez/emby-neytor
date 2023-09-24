@@ -15,7 +15,7 @@ jobs:
       matrix:
         os:
           - ubuntu-latest
-          - buildjet-4vcpu-ubuntu-2204-arm
+          - actuated-aarch64
 
     steps:
     - uses: actions/checkout@v3
@@ -30,7 +30,7 @@ jobs:
 
     - name: Set Tag
       run: |
-        if [ ${{ matrix.os }} == 'buildjet-4vcpu-ubuntu-2204-arm' ]; then
+        if [ ${{ matrix.os }} == 'actuated-aarch64' ]; then
           export DOCKER_TAG="4.7.14.0-arm"
         else
           export DOCKER_TAG="4.7.14.0"
