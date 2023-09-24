@@ -24,9 +24,11 @@ jobs:
         password: ${{ secrets.PASS_HUB }}
         
     
-    - name: Build and push the Docker image
-      run: docker build . --file Dockerfile --tag neytor/emby-neytor:4.7.14.0 && docker image ls && docker push neytoremby-neytor:4.7.14.0
+    - name: Build and push the Docker image latest
+      run: docker build . --file Dockerfile --tag neytor/emby-neytor && docker image ls && docker push neytor/emby-neytor
 
+    - name: Build and push the Docker image with tag
+      run: docker build . --file Dockerfile --tag neytor/emby-neytor:4.7.14.0 && docker image ls && docker push neytor/emby-neytor:4.7.14.0
       
     
 
