@@ -3,8 +3,15 @@ Centro multimedia emby
 
 # Referencia rápida
 
--	**Emby y el mundo de la multimedia**:  
-	[Sitio oficial de Emby](https://emby.media/)
+-	**¿Qué es Emby?**
+-	**¿Objetivo de la imagen?**
+-	**¿Cómo usar esta imagen?**
+-	**Login por defecto**
+-	**Arquitectura soportada**
+-	**Volumenes**
+-	**Uso avanzado - persistencia**
+-	**Rendimiento optimizado**
+-	**[Sitio oficial de Emby](https://emby.media/)**
   
 # ¿Qué es  emby?
 
@@ -17,42 +24,102 @@ Los usuarios pueden conectarse al servidor desde un cliente compatible, disponib
 
 ![logo](https://image.winudf.com/v2/image/Y29tLmd1aWRlLmd1aWRlZm9yZW1ieXhfaWNvbl8xNTEyNTUxNzcyXzA2NA/icon.png?w=170&fakeurl=1&type=.png)
 
-# ¿Cómo usar esta imagen?
+## ¿Objetivo de la imagen?
 
-## Crear container y exponer el puerto 80 para tu browser http://localhost/ o http://laipdemimaquina/
+Nuestro servidor Emby permitirá crear un centro multimedia compatible con sistemas tales como WIndows, Linux, MacOS y arquitecturas basadas en ARM con tan solo descargar la imagen con el tag `:arm`
 
-```console
-$ docker run  --name streaming -d -p 80:8096 -v metadata:/var/lib/emby/ neytor/emby-neytor
-```
+## ¿Cómo usar esta imagen?
 
-## Compartir tu multimedia al contenedor
+Puede hacer uso de docker cli o docker compose, crea un container y exponer el puerto 8081 para tu browser o el puerto de su preferencia, ejemplo de acceso http://localhost:8081/ o http://laipdemimaquina:8081/
 
-```console
-$ docker run  --name streamingfull -d -p 80:8096 --restart unless-stopped -v $PWD/mimultimedia:/multimedia/ -v metadata:/var/lib/emby/ neytor/emby-neytor
-```
-## ...Correr vía  [`docker-compose`](https://github.com/docker/compose)
+### Login por defecto
+
+Para acceder a su recurso compartido siga la sintaxis descrita en la tabla:
+
+| URL acceso            | Usuario por defecto | Contraseña por defecto |
+| --------------------- | ------------------- | ---------------------- |
+| `http://localhost:8081/` | `Se crea en el login`            | `Se crea en el login`               |
+
+### docker-compose (recomendado)
 
 ```yaml
 version: '3'
-
 services:
-
   embyneytor:
     image: neytor/emby-neytor
     restart: always
     ports:
-      - 80:8096
+      - 8081:8096
     networks:
       - mynet
     volumes:
       - metadata:/var/lib/emby
-      
   networks:
     mynet:
   volumes:
     metadata:
 
 ```
+
+### docker cli
+
+```console
+$ docker run  --name streaming -d -p 8081:8096 -v metadata:/var/lib/emby/ neytor/emby-neytor
+```
+
+## Arquitectura soportada
+
+La arquitectura soportada es la siguiente:
+
+| Arquitectura | Disponible | Tag descarga                 |
+| ------------ | ---------- | ---------------------------- |
+| x86-64       | ✅          | docker pull neytor/emby-neytor    |
+| arm64        | ✅          | docker pull neytor/emby-neytor:arm
+
+
+## Volumenes
+
+Puedes pasar las siguientes variables al crear el contenedor
+
+| Variable      | Función                                                      |
+| ------------- | ------------------------------------------------------------ |
+| `-v metadata:/var/lib/emby/`     | Almcenamiento persistente para Emby Server.       |
+| `-v videos:/videos` | Define el directorio donde almacenaras tus videos, peliculas, series. |
+
+
+## Uso avanzado - persistencia
+
+### docker cli - Compartir tu multimedia al contenedor
+
+```console
+$ docker run  --name streamingfull -d -p 8081:8096 --restart unless-stopped -v $PWD/mimultimedia:/multimedia/ -v metadata:/var/lib/emby/ neytor/emby-neytor
+```
+### docker-compose (recomendado) - Compartir tu multimedia al contenedor
+
+```yaml
+version: '3'
+services:
+  embyneytor:
+    image: neytor/emby-neytor
+    restart: always
+    ports:
+      - 8081:8096
+    networks:
+      - mynet
+    volumes:
+      - metadata:/var/lib/emby
+      - videos:/videos
+  networks:
+    mynet:
+  volumes:
+    metadata:
+    videos:
+
+```
+
+## Rendimiento optimizado
+
+Si desea una mejor velocidad se recomienda utilizar la red `host`
 
 [![Try in PWD](https://github.com/play-with-docker/stacks/raw/cff22438cb4195ace27f9b15784bbb497047afa7/assets/images/button.png)](http://play-with-docker.com?stack=https://raw.githubusercontent.com/docker-library/docs/db214ae34137ab29c7574f5fbe01bc4eaea6da7e/wordpress/stack.yml)
 
