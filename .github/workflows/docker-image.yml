@@ -35,9 +35,8 @@ jobs:
         else
           export DOCKER_TAG="4.7.14.0"
         fi
-        
         echo "Using Docker Tag: $DOCKER_TAG"
-      
+        
     - name: Build and push the Docker image
       run: |
         docker build . \
@@ -45,4 +44,4 @@ jobs:
           --tag "neytor/emby-neytor:$DOCKER_TAG"
         docker image ls
         docker push "neytor/emby-neytor:$DOCKER_TAG"
-      shell: /usr/bin/bash -e {0}
+      shell: bash
