@@ -1,9 +1,9 @@
-FROM fedora:40
+FROM fedora:41
 
 LABEL MAINTAINER Yonier Gomez yonieer13@gmail.com, version: 4.7.14.0
 
 RUN dnf -y update && dnf -y install \
-    https://github.com/MediaBrowser/Emby.Releases/releases/download/4.7.14.0/emby-server-rpm_4.7.14.0_x86_64.rpm \
+    https://github.com/MediaBrowser/Emby.Releases/releases/download/4.8.3.0/emby-server-rpm_4.8.3.0_x86_64.rpm \
     && dnf clean all
 
 RUN mkdir -p multimedia/{videos,musica,peliculas}
