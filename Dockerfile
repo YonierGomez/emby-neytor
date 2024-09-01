@@ -1,4 +1,4 @@
-FROM fedora:41
+FROM fedora:42
 
 LABEL MAINTAINER Yonier Gomez yonieer13@gmail.com, version: 4.8.8.0
 
