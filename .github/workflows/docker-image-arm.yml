@@ -29,8 +29,8 @@ jobs:
 
     - name: Build and push the Docker image with tag
       run: |
-        docker build . --file Dockerfile-arm --tag neytor/emby-neytor:arm.v4.8.8.0 && \
-        docker image ls && docker push neytor/emby-neytor:arm.v4.8.8.0
+        docker build . --file Dockerfile-arm --tag neytor/emby-neytor:arm.v4.8.10.0 && \
+        docker image ls && docker push neytor/emby-neytor:arm.v4.8.10.0
       
     
 
