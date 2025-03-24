@@ -3,7 +3,7 @@ FROM amazonlinux
 LABEL MAINTAINER Yonier Gomez yonieer13@gmail.com
 
 RUN dnf -y update && dnf -y install \
-    https://github.com/MediaBrowser/Emby.Releases/releases/download/4.8.10.0/emby-server-rpm_4.8.10.0_aarch64.rpm \
+    https://github.com/MediaBrowser/Emby.Releases/releases/download/4.8.11.0/emby-server-rpm_4.8.11.0_x86_64.rpm \
     && dnf clean all
 
 RUN mkdir -p multimedia/{videos,musica,peliculas}
